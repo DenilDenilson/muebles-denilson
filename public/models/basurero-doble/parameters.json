@@ -1,0 +1,18 @@
+{
+  "niche_width": 400,
+  "niche_depth": 500,
+  "niche_height": 680,
+  "board": 18,
+  "cabinet_width": 394,
+  "cabinet_depth": 478,
+  "cabinet_height": 660,
+  "floor_gap": 4,
+  "bin_width": 120,
+  "bin_depth": 300,
+  "bin_height": 315,
+  "pipe_front": 200,
+  "pipe_bottom": 280,
+  "left_pipe_space": 150,
+  "right_pipe_space": 175,
+  "max_open_angle": 30
+}

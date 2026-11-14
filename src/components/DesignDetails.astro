@@ -1,0 +1,14 @@
+---
+import type { Furniture } from '../data/furniture';
+interface Props { item: Furniture }
+const { item } = Astro.props;
+---
+<section class="design-details shell" id="detalles" aria-labelledby="details-heading">
+  <div class="details-intro"><span class="eyebrow">PENSADO DESDE ADENTRO</span><h2 id="details-heading">Cada centímetro<br />tiene un propósito.</h2><p>Diseñado para un hueco real bajo el lavadero: dos recipientes a los lados del desagüe y un solo movimiento para acceder a ellos.</p></div>
+  <div class="detail-cards">
+    <article><span class="detail-icon" aria-hidden="true">01 /</span><h3>Dos espacios, dos tachos</h3><p>Recipientes retirables por separado. Envolvente provisional por tacho: 12 × 30 × 31,5 cm, orientados a lo largo del fondo.</p><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">Ver tacho de referencia ↗</a></article>
+    <article><span class="detail-icon" aria-hidden="true">02 /</span><h3>Se acerca a ti</h3><p>El frente y la bandeja giran sobre un eje inferior. El anteproyecto permite explorar una inclinación de hasta 30°.</p></article>
+    <article><span class="detail-icon" aria-hidden="true">03 /</span><h3>Acceso al desagüe</h3><p>Trasera y techo abiertos. El espacio central y el recorte de la bandeja conservan acceso a la instalación.</p></article>
+  </div>
+  <div class="design-note"><span class="note-symbol" aria-hidden="true">i</span><p><strong>Un diseño para revisar juntos.</strong> Hueco medido: 40 × 50 × 68 cm. El tubo y los tachos son aproximaciones. Antes de fabricar, confirmar sus medidas, la poza, los herrajes, el anclaje y la protección de los cantos contra humedad. El lateral izquierdo es el más ajustado.</p><a href="/models/basurero-doble/verification.json" target="_blank" rel="noopener">Informe geométrico ↗</a></div>
+</section>

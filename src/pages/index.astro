@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FurnitureViewer from '../components/FurnitureViewer.astro';
+import DesignDetails from '../components/DesignDetails.astro';
+import { furniture } from '../data/furniture';
+const featured = furniture[0];
+---
+<Layout>
+  <section class="hero shell">
+    <div><p class="eyebrow"><span class="short-line"></span> MUEBLES A MEDIDA, IDEAS QUE TOMAN FORMA</p><h1>Diseñados<br />para <em>encajar.</em><span class="hero-star" aria-hidden="true">✳</span></h1></div>
+    <div class="hero-side"><p>Partimos de tu espacio.<br />Diseñamos lo que necesitas.<br /><strong>Y lo exploramos contigo.</strong></p><a href="#coleccion">Descubre la colección <span aria-hidden="true">↘</span></a></div>
+  </section>
+  <FurnitureViewer item={featured} />
+  <DesignDetails item={featured} />
+  <section class="process-section shell" id="proceso" aria-labelledby="process-heading">
+    <div><span class="eyebrow">DE LA IDEA A TU ESPACIO</span><h2 id="process-heading">Primero lo imaginamos.<br /><em>Después lo construimos.</em></h2></div>
+    <ol><li><span>01</span><div><h3>Medimos</h3><p>El espacio real es nuestro punto de partida.</p></div></li><li><span>02</span><div><h3>Exploramos</h3><p>Revisamos proporciones, acabados y movimiento en 3D.</p></div></li><li><span>03</span><div><h3>Definimos</h3><p>Confirmamos piezas y herrajes antes de fabricar.</p></div></li></ol>
+  </section>
+</Layout>

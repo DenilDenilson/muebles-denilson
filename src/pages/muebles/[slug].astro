@@ -1,0 +1,13 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FurnitureViewer from '../../components/FurnitureViewer.astro';
+import DesignDetails from '../../components/DesignDetails.astro';
+import { furniture } from '../../data/furniture';
+export function getStaticPaths() { return furniture.map(item => ({ params: { slug: item.slug }, props: { item } })); }
+const { item } = Astro.props;
+---
+<Layout title={`${item.title} — Muebles Denilson`} description={item.description}>
+  <div class="breadcrumb shell"><a href="/">Colección</a><span>/</span><span>{item.title}</span></div>
+  <FurnitureViewer item={item} />
+  <DesignDetails item={item} />
+</Layout>

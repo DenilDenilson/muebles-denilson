@@ -1,0 +1,10 @@
+pieza,ancho_mm,fondo_mm,alto_mm,material,observacion
+costado_izquierdo,18,458,660,Melamina 18 mm,"Anteproyecto, sin descuento de tapacantos"
+costado_derecho,18,458,660,Melamina 18 mm,"Anteproyecto, sin descuento de tapacantos"
+base_fija,358,458,18,Melamina 18 mm,"Anteproyecto, sin descuento de tapacantos"
+travesano_superior,358,58,18,Melamina 18 mm,"Anteproyecto, sin descuento de tapacantos"
+travesano_trasero,358,18,70,Melamina 18 mm,"Anteproyecto, sin descuento de tapacantos"
+frente_basculante,352,18,592,Melamina 18 mm,"Anteproyecto, sin descuento de tapacantos"
+bandeja_portatachos,350,338,18,Melamina 18 mm,Con recorte central; revisar plano
+soporte_bandeja_izquierdo,18,148,168,Melamina 18 mm,"Anteproyecto, sin descuento de tapacantos"
+soporte_bandeja_derecho,18,148,168,Melamina 18 mm,"Anteproyecto, sin descuento de tapacantos"

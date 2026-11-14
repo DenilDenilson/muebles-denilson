@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string }
+const { title = 'Muebles Denilson — Diseñados para encajar', description = 'Una colección de muebles a medida. Explora cada diseño en 3D, revisa sus detalles y descarga el modelo STEP.' } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f4f2eb" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Ir al contenido</a>
+    <header class="site-header shell">
+      <a class="brand" href="/" aria-label="Muebles Denilson, inicio">
+        <span class="brand-mark" aria-hidden="true">m<span>.</span></span>
+        <span>MUEBLES<br /><strong>DENILSON</strong></span>
+      </a>
+      <nav aria-label="Principal">
+        <a class="nav-link" href="/#coleccion">Colección <span class="nav-count">01</span></a>
+        <a class="nav-link process-link" href="/#proceso">Nuestro proceso</a>
+      </nav>
+      <span class="header-note"><span class="status-dot"></span> Hechos a medida, desde la idea.</span>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer shell">
+      <a href="/" class="footer-brand">Muebles Denilson<span>Un espacio. Una idea. Un mueble.</span></a>
+      <span>Diseño a medida · Perú <span class="footer-year">© {new Date().getFullYear()}</span></span>
+    </footer>
+  </body>
+</html>

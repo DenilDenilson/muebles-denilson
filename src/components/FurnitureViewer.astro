@@ -1,0 +1,68 @@
+---
+import type { Furniture } from '../data/furniture';
+interface Props { item: Furniture }
+const { item } = Astro.props;
+---
+<section class="furniture-section shell" id="coleccion" aria-labelledby="furniture-title">
+  <div class="section-heading"><span class="eyebrow">LA COLECCIÓN / {item.category.toUpperCase()}</span><span class="collection-index">{item.number} — Diseño en desarrollo</span></div>
+  <div class="product-layout">
+    <aside class="product-info">
+      <span class="product-number">N.º {item.number}</span>
+      <h2 id="furniture-title">{item.title}<span>Todo en su lugar.</span></h2>
+      <p class="product-description">{item.description}</p>
+      <div class="material-section">
+        <span class="small-label">ACABADO DEL FRENTE</span>
+        <div class="swatches" role="group" aria-label="Acabado del frente">
+          <button class="swatch selected" data-finish="roble" aria-label="Roble natural" aria-pressed="true" style="--swatch:#b88e64"></button>
+          <button class="swatch" data-finish="blanco" aria-label="Blanco cálido" aria-pressed="false" style="--swatch:#e9e5dc"></button>
+          <button class="swatch" data-finish="grafito" aria-label="Grafito" aria-pressed="false" style="--swatch:#454b45"></button>
+          <span id="finish-label">Roble natural</span>
+        </div>
+        <p class="material-caption">Melamina de 18 mm · Cuerpo blanco cálido</p>
+      </div>
+      <dl class="dimension-list" aria-label="Dimensiones del cuerpo, sin tirador">
+        <div><dt>Ancho</dt><dd>{item.dimensions.width}<span>cm</span></dd></div>
+        <div><dt>Fondo</dt><dd>{item.dimensions.depth}<span>cm</span></dd></div>
+        <div><dt>Alto</dt><dd>{item.dimensions.height}<span>cm</span></dd></div>
+      </dl>
+      <a class="download-button" href={item.step} download><span>Descargar modelo STEP</span><span aria-hidden="true">↗</span></a>
+      <a class="subtle-link" href={`/muebles/${item.slug}/#detalles`}>Ver ficha del diseño <span aria-hidden="true">↓</span></a>
+    </aside>
+    <div class="viewer-wrap" data-viewer data-model={item.model}>
+      <div class="viewer-toolbar">
+        <span class="viewer-tag"><span class="status-dot"></span> EXPLORA EN 3D</span>
+        <div class="view-presets" role="group" aria-label="Vista del mueble">
+          <button data-camera="perspective" class="active" aria-pressed="true">Perspectiva</button>
+          <button data-camera="front" aria-pressed="false">Frente</button>
+          <button data-camera="top" aria-pressed="false">Superior</button>
+        </div>
+      </div>
+      <div class="canvas-stage">
+        <canvas id="furniture-canvas" aria-label="Modelo 3D interactivo del basurero doble de melamina" tabindex="0" aria-describedby="viewer-instructions"></canvas>
+        <div class="viewer-loading" role="status"><span class="loading-symbol" aria-hidden="true">m.</span><span>Preparando tu mueble…</span></div>
+        <div class="viewer-error" hidden role="alert"><strong>No pudimos iniciar la vista 3D.</strong><p>Prueba con un navegador compatible con WebGL. El modelo STEP sigue disponible para descargar.</p><button data-retry>Reintentar</button></div>
+        <span class="model-caption">BASURERO DOBLE<span>Melamina / Apertura basculante</span></span>
+        <button class="reset-view" aria-label="Restablecer vista" title="Restablecer vista" data-reset>↺</button>
+        <span class="viewer-hint" id="viewer-instructions">Arrastra para girar · Pellizca o desplaza para acercar</span>
+      </div>
+      <div class="viewer-controls">
+        <div class="opening-control">
+          <button class="motion-button" data-toggle-open aria-label="Abrir mueble" aria-pressed="false"><span aria-hidden="true">↗</span></button>
+          <label for="opening">Apertura <output id="opening-value" for="opening">0°</output></label>
+          <input id="opening" type="range" min="0" max="30" value="0" step="1" aria-label="Ángulo de apertura" />
+        </div>
+        <div class="viewer-toggles">
+          <button data-explode aria-pressed="false"><span aria-hidden="true">◇</span> Despiece</button>
+          <button data-context aria-pressed="false"><span aria-hidden="true">⌁</span> Desagüe</button>
+          <button data-dimensions aria-pressed="false"><span aria-hidden="true">↔</span> Medidas</button>
+        </div>
+      </div>
+      <div class="viewer-footnote"><span>Anteproyecto v0.1</span><span>Tachos y herrajes por confirmar</span></div>
+    </div>
+  </div>
+</section>
+<script>
+  import { initViewer } from '../scripts/viewer';
+  const viewer = document.querySelector<HTMLElement>('[data-viewer]');
+  if (viewer) initViewer(viewer);
+</script>

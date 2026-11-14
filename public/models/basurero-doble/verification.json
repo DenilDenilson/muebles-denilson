@@ -1,0 +1,18 @@
+{
+  "angle_step_degrees": 1,
+  "range_degrees": [
+    0,
+    30
+  ],
+  "collisions": [],
+  "status": "PASS",
+  "scope": "Interferencia geométrica de piezas móviles contra melamina fija y envolvente del desagüe. No verifica cargas, anclaje, herrajes reales ni dimensiones no medidas de la poza.",
+  "left_bin_to_pipe_clearance_mm": 4.0,
+  "assumptions": [
+    "Tachos sin tapa, envolvente exterior 120×300×315 mm",
+    "Melamina 18 mm y tapacantos por definir",
+    "Pivotes simplificados; brazos y capacidad de carga pendientes",
+    "Tubería aproximada por envolvente de 75 mm de diámetro",
+    "Base elevada 20 mm; protección contra humedad pendiente"
+  ]
+}
