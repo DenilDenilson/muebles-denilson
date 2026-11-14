@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.33.0",
+  "engines": { "node": "24.x" },
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "build": "astro check && astro build",
@@ -12,6 +13,8 @@
     "import:model": "node scripts/import-model.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/manrope": "^5.3.0",
     "astro": "^7.4.12",
     "three": "^0.187.0"
   },

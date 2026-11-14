@@ -26,6 +26,8 @@ test('carga el STEP convertido y permite revisar el movimiento y las piezas', as
   await expect(viewer).toHaveAttribute('data-angle', '22');
   await expect(viewer).toHaveAttribute('data-context', 'false');
   await expect(viewer).toHaveAttribute('data-exploded', 'false');
+  await expect(page.getByRole('button', { name: 'Desagüe', exact: false })).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.getByRole('button', { name: 'Medidas', exact: false })).toHaveAttribute('aria-pressed', 'false');
   await page.getByRole('button', { name: 'Roble natural', exact: true }).click();
   await page.locator('#coleccion').scrollIntoViewIfNeeded();
   await page.screenshot({ path: 'test-results/catalog-desktop.png', fullPage: true });

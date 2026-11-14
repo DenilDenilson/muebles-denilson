@@ -239,10 +239,10 @@ export async function initViewer(root: HTMLElement) {
       }, listeners);
     });
     query<HTMLButtonElement>('[data-reset]').addEventListener('click', () => {
-      query<HTMLButtonElement>('[data-camera="perspective"]').click(); setOpening(22);
+      query<HTMLButtonElement>('button[data-camera="perspective"]').click(); setOpening(22);
       desiredExploded = 0; query('[data-explode]').setAttribute('aria-pressed', 'false');
       contextGroup.visible = dimensions.visible = false;
-      query('[data-context]').setAttribute('aria-pressed', 'false'); query('[data-dimensions]').setAttribute('aria-pressed', 'false');
+      query('button[data-context]').setAttribute('aria-pressed', 'false'); query('button[data-dimensions]').setAttribute('aria-pressed', 'false');
       root.dataset.exploded = 'false'; root.dataset.context = 'false'; root.dataset.dimensions = 'false'; requestRender();
     }, listeners);
     query<HTMLButtonElement>('[data-explode]').addEventListener('click', event => {
@@ -250,7 +250,7 @@ export async function initViewer(root: HTMLElement) {
       (event.currentTarget as HTMLButtonElement).setAttribute('aria-pressed', String(!!desiredExploded));
       root.dataset.exploded = String(!!desiredExploded); requestRender();
     }, listeners);
-    for (const [selector, group, key] of [['[data-context]', contextGroup, 'context'], ['[data-dimensions]', dimensions, 'dimensions']] as const) {
+    for (const [selector, group, key] of [['button[data-context]', contextGroup, 'context'], ['button[data-dimensions]', dimensions, 'dimensions']] as const) {
       query<HTMLButtonElement>(selector).addEventListener('click', event => {
         group.visible = !group.visible;
         (event.currentTarget as HTMLButtonElement).setAttribute('aria-pressed', String(group.visible));
